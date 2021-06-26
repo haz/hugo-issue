@@ -1,0 +1,12 @@
+
+{{ $member_id := .Params.Id }}
+
+<pre>{{ $member_id }}</pre>
+<pre>{{ where .Site.Pages "Section" "papers" }}</pre>
+<pre>{{ index (where .Site.Pages "Section" "papers") 0 }}</pre>
+
+<pre>{{ (index (where .Site.Pages "Section" "papers") 0).Params.Authors }}</pre>
+
+
+This doesn't work:
+<pre>{{ where (where .Site.Pages "Section" "papers") $member_id "in" ".Params.Authors" }}</pre>
